@@ -1,4 +1,4 @@
-package Servlet;
+package servlets;
 
 import dao.AdminDAO;
 import entities.User;
