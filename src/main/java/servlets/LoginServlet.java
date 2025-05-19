@@ -2,9 +2,9 @@ package servlets;
 
 import entities.User;
 import utils.PasswordUtils;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.*;
-import jakarta.servlet.*;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+import javax.servlet.*;
 import java.io.*;
 
 public class LoginServlet extends HttpServlet {
