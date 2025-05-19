@@ -83,4 +83,36 @@ public class CustomPackage extends TravelPackage {
         return new CustomPackage(packageId, title, duration, price, categoryName, destination,
                 availableSeats, activities, hotelClass, vehicleType, driverStatus, dummyUser);
     }
+
+    @Override
+    public List<String> validate() {
+        List<String> errors = super.validate(); // Validate base class fields
+
+        // Validate activities
+        if (selectedActivities == null || selectedActivities.isEmpty()) {
+            errors.add("At least one activity must be selected.");
+        }
+
+        // Validate hotel class
+        if (selectedHotelClass == null || selectedHotelClass.trim().isEmpty()) {
+            errors.add("Hotel class must be selected.");
+        } else {
+            List<String> validHotelClasses = Arrays.asList("3-star", "4-star", "5-star");
+            if (!validHotelClasses.contains(selectedHotelClass)) {
+                errors.add("Invalid hotel class selected.");
+            }
+        }
+
+        // Validate vehicle type
+        if (selectedVehicleType == null || selectedVehicleType.trim().isEmpty()) {
+            errors.add("Vehicle type must be selected.");
+        }
+
+        // Validate withDriver
+        if (!driverStatus && driverStatus != false) {
+            errors.add("Please specify if a driver is included.");
+        }
+
+        return errors;
+    }
 }
