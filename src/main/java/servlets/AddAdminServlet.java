@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import utils.PasswordUtils;
 
 @WebServlet("/add")
 public class AddAdminServlet extends HttpServlet {
@@ -22,7 +23,7 @@ public class AddAdminServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/views/admin/add.jsp").forward(request, response);
+        request.getRequestDispatcher("addadmin.jsp").forward(request, response);
     }
 
     @Override
@@ -34,14 +35,16 @@ public class AddAdminServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        User newAdmin = new User(name, telephone, email, password, "admin");
+        // Hash the password before creating the User object
+        String hashedPassword = PasswordUtils.hashPassword(password);
+
+        User newAdmin = new User(name, telephone, email, hashedPassword, "admin");
 
         if (adminDao.addAdmin(newAdmin)) {
             response.sendRedirect(request.getContextPath() + "/admin/list?success=added");
         } else {
             request.setAttribute("error", "Admin with this email already exists");
-            request.getRequestDispatcher("/WEB-INF/views/admin/add.jsp").forward(request, response);
-
+            request.getRequestDispatcher("addadmin.jsp").forward(request, response);
         }
     }
 }
