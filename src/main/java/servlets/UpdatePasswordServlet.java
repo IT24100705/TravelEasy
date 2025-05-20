@@ -6,6 +6,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
 
+@WebServlet(name = "UpdatePasswordServlet", value = "/update")
 public class UpdatePasswordServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
         String email = (String) req.getSession().getAttribute("email");
