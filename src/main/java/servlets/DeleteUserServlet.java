@@ -6,6 +6,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
 
+@WebServlet(name = "DeleteUserServlet",value = "/delete")
 public class DeleteUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
         String username = (String) req.getSession().getAttribute("username");
