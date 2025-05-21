@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CartFileManager {
     // Use a relative path that will be resolved against the webapp root
-    private static final String CART_FILE = "WEB-INF/data/cart.txt";
+    private static final String CART_FILE = "/cart.txt";
     private static ServletContext servletContext;
 
     // Set the servlet context (call this from a servlet's init() method)
