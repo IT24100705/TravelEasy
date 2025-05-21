@@ -1,4 +1,4 @@
-package Servlet;
+package servlets;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
