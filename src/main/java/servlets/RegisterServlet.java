@@ -4,10 +4,11 @@ import entities.User;
 import utils.FileUtils;
 import utils.PasswordUtils;
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
 import java.io.*;
 
+@WebServlet(name = "RegisterServlet", value = "/register")
 public class RegisterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
