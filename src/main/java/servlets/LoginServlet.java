@@ -12,10 +12,17 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        System.out.println(req.getSession().getAttribute("role"));
+
         if (req.getSession().getAttribute("email") != null) {
-            req.getRequestDispatcher("adminDashboard.jsp").forward(req, res);
-            res.sendRedirect("dashboard.jsp");
-            return;
+            if (req.getSession().getAttribute("role").equals("user")) {
+                res.sendRedirect("dashboard.jsp");
+                return;
+
+            }else{
+                req.getRequestDispatcher("adminDashboard.jsp").forward(req, res);
+                return;
+            }
         }
         RequestDispatcher dispatcher = req.getRequestDispatcher("login.jsp");
         dispatcher.forward(req, res);
@@ -61,7 +68,7 @@ public class LoginServlet extends HttpServlet {
 
                         // Redirect based on role
                         if ("admin".equalsIgnoreCase(user.getRole())) {
-                            res.sendRedirect(req.getContextPath() + "/adminDashboard.jsp");
+                            res.sendRedirect(req.getContextPath() + "/MainDashboard.jsp");
                         } else {
                             res.sendRedirect(req.getContextPath() + "/dashboard.jsp");
                         }
