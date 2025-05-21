@@ -1,4 +1,4 @@
-package Servlet;
+package servlets;
 
 import cart.CartItem;
 import cart.CartFileManager;
