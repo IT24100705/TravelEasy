@@ -1,4 +1,4 @@
-package Servlet;
+package servlets;
 
 import entities.User;
 import utils.PasswordUtils;
