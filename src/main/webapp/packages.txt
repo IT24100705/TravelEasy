@@ -1,0 +1,6 @@
+PKG001|Explore Ella & Nuwara Eliya|4|42000.0|Adventure|Hill Country|15
+PKG002|Relax in Mirissa & Unawatuna|5|48000.0|Honeymoon|South Coast|10
+PKG003|Beach Bliss in Bentota|3|35000.0|Relaxation|Coastal Belt|20
+PKG004|Trincomalee & Pasikuda Adventure|5|47500.0|Adventure|East Coast|12
+PKG005|Cultural Wonders of Anuradhapura|2|30000.0|Cultural|North Central|10
+
